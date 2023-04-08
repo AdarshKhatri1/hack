@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- this form method is get so the data of that form is encoded in the URL 
+GET ka use hm tb  krte hai jb hame normal sa data server me dalna hota hai jo ki secure na ho 
+jo hame secure data ko server me dalna hota hai tb hm PUSH ka use krte hai-->
+
+<head>
+    <div class="container">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment form</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                margin: 15px 30px;
+                font-size: 19px;
+                padding: 12px;
+                background-image: url(image/PHOTO_2.jpg);
+            }
+            
+            .container {
+                background-color: rgb(240, 222, 222);
+                padding: 5px 20px 15px 20px;
+                border: 2px solid lightgray;
+                border-radius: 20px;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="password"],
+            input[type="date"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid rgb(226, 218, 218);
+                border-radius: 14px;
+                font-size: 20px;
+                margin: 10px;
+            }
+            
+            fieldset {
+                background-color: #fff;
+                border: 1px solid rgb(226, 218, 218);
+            }
+            
+            .main-heading {
+                text-align: center;
+                background-color: red;
+                height: 50%;
+                width: 100%;
+            }
+            
+            input[type="submit"] {
+                font-size: 32px;
+                background-color: rgb(32, 116, 219);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+            
+            input[type="submit"]:hover {
+                background-color: rgb(131, 44, 44);
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- margin: 15px 30px; -----it is used for vertical and horizontal margin-->
+        <!--  border-radius: value ; ----  isse hamare border ki edges thodi si curved ho jati hai jitne pixel hm krte hai-->
+        <form action="">
+            <h1 class="main-heading">Payment Form</h1>
+            <hr>
+            <p> Intructions :- required field are followed by *</p>
+            <h2>Contact Information</h2>
+
+            <p>Name: *<input type="text" name="name" required placeholder="Akash Mishra"></p>
+            <!--
+                           placeholder se basically ham kuch value dete hint ke liye jo ki hame tb tk dikhti hai jb tk us coloum me kuch nahi likhte
+                  -->
+            <fieldset>
+                <legend> Gender *</legend>
+                <p>
+                    Male <input type="radio" name="gender" id="Male" required> Female <input type="radio" name="gender" id="Female" required>
+
+
+
+                </p>
+            </fieldset>
+            <p>Address *<textarea name="address" id="address" cols="100" rows="8" required placeholder="enter your address"></textarea></p>
+            <p>Email: *<input type="email" name="email" id="email" required placeholder="example123@gmail.com"></p>
+            <p>Pincode: *<input type="number" name="pincode" id="pincode" required placeholder="114321"></p>
+            <br>
+            <h2>Payment Information </h2>
+            <p>Card type: *
+
+                <select name="card_type" id="card_type" required>
+                           <option value="">--select a card type-- </option>
+                           <option value="visa">Visa</option>
+                           <option value="slice">Slice</option>
+                           <option value="rupay">Rupay</option>
+                           <option value="credit">Credit Card</option>
+                  </select>
+            </p>
+            <p>
+                Card Number: *<input type="number" name="card_number" id="card_number" required placeholder="1111-2222-3333-4444">
+            </p>
+            <p>
+                Expiration date: *<input type="date" name="exp_date" id="exp_date">
+            </p>
+            <p>CVV *<input type="password" name="CVV" id="CVV" required placeholder="123" </p>
+                <br>
+                <br>
+                <input type="submit" value="Pay Now" required>
+
+        </form>
+    </div>
+</body>
+
+</html>

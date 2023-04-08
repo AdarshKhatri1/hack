@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="ada.css">
+    <link rel="stylesheet" href="media.css">
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        wrapper
+        <!-- <img id="m1" src=".//images/background.png" alt="" class="img-1"> -->
+        <div class="container">
+            contaier
+            <div class="left-side-slider">
+                left-side-slider
+                <h1 class="smart-care"> FastAid</h1>
+                <h1 class="good-morning">
+                    <img class="scale-image" src="Blue Simple Minimalist Health Logo.jpg" alt="" width="200px">
+                    Your Health Care
+                </h1>
+                <li>
+                    <ul> <img src="dash.png" alt="" width="25px"> <button class="button"> <a
+                                href=".//hospital_online_appointment//nav.html">Dashboard</a> </button> </ul>
+                    <ul> <img src="patience.png" alt="" width="25px"> <button class="button"><a
+                                href="patients.html">Patients</a></button> </ul>
+                    <ul> <img src="calender.jpeg" alt="" width="25px"> <button class="button"> <a
+                                href="calendar.html">Calendar</a> </button> </ul>
+                    <ul> <img src="setting.png" alt="" width="25px"> <button class="button"><a
+                                href="setting.html">Setting</a></button> </ul>
+                    <ul> <img src="support.png" alt="" width="25px"> <button class="button">Support</button> </ul>
+                    <ul class="logout"> <img src="logout-3.jpeg" alt="" width="20px"> <a href="login.html"><button
+                                class="button">Log Out</button></a> </ul>
+                </li>
+            </div>
+            <div class="right-portion">
+                right-portion
+                <div class="nav_bar">
+                    <ul class="nav_links">
+                        <div class="nav_links-1">
+                            <li> <img src="s2.jpeg" alt=""> </li>
+                            <li> <input type="text" placeholder="Search patients here..."> </li>
+                        </div>
+                        <div class="nav_links-2">
+                            <li>
+                                <a href="message.html"><img src="m2.jpeg" alt=""></a>
+                            </li>
+                            <li> <img src="makki.jpeg" alt=""></li>
+                            <li>
+                                <h1>Dr. John Doe
+                                    <a href="location.html"> <img src=".//images/location.png" alt=""></a>
+                                </h1>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="down-portion-1">
+                    <h1>Patients > <span>Mr. Mohd Makki</span></h1>
+                </div>
+                <div class="down-portion-2">
+                    <div class="image-portion"><img src="user-1.png" alt=""></div>
+                    <div class="name-section">
+                        <h1><strong>Patient</strong></h1>
+                        <p id="uname">Mr. Jesse Wynn</p>
+                        <!-- <button>VIEW PROFILE</button> -->
+                        <a href=".//mishra/view_profile.html"><button>View Profile</button></a>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Sex: <span>Male</span> </h4>
+                        <h4>Age: <span>32</span> </h4>
+                        <h4>Blood: <span>B+</span> </h4>
+                    </div>
+                    <div class="room-detail">
+                        <h3>Check-in: <span>24 Feb, 2023</span> </h3>
+                        <h3>Dept: <span>Cardiology</span> </h3>
+                        <h3>Bed #: <span>0747</span> </h3>
+                    </div>
+                </div>
+                <div class="down-portion-3">
+                </div>
+                <div class="image-scrolling-portion">
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 6</div>
+                            <img src=".//images/scroll-1.png">
+                            <div class="text">Caption Text</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 6</div>
+                            <img src=".//images/scroll-2.png">
+                            <div class="text">Caption Two</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 6</div>
+                            <img src=".//images/scroll-3.png">
+                            <div class="text">Caption Three</div>
+                        </div>
+                        <div class="mySlides fade">
+                            <div class="numbertext">4 / 6</div>
+                            <img src=".//images/scroll-3.png">
+                            <div class="text">Caption Three</div>
+                        </div>
+                        <div class="mySlides fade">
+                            <div class="numbertext">5 / 6</div>
+                            <img src=".//images/scroll-2.png">
+                            <div class="text">Caption Two</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">6 / 6</div>
+                            <img src=".//images/scroll-3.png">
+                            <div class="text">Caption Three</div>
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center" class="dots">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <span class="dot" onclick="currentSlide(6)"></span>
+                    </div>
+
+                    <script>
+                        var namee= JSON.parse(localStorage.getItem("data"))||{};
+                        if(namee!=undefined)
+                        document.getElementById("uname").innerText = namee.name;
+                        else
+                        document.getElementById("uname").innerText = "adarsh";
+
+
+                        // document.getElementById("uname").style.border("1px solid red");
+
+                        // console.log(JSON.parse(localStorage.getItem("data"))|| noat)
+                        let slideIndex = 1;
+                        showSlides(slideIndex);
+
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+
+                        function showSlides(n) {
+                            let i;
+                            let slides = document.getElementsByClassName("mySlides");
+                            let dots = document.getElementsByClassName("dot");
+                            if (n > slides.length) {
+                                slideIndex = 1
+                            }
+                            if (n < 1) {
+                                slideIndex = slides.length
+                            }
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex - 1].style.display = "block";
+                            dots[slideIndex - 1].className += " active";
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <img src=".//images/background-1.png" alt="">
+        <div class="container-1">
+            <div class="footer-box-1">
+                <p>Copyright © Your Website 2023</p>
+            </div>
+            <div class="footer-box-2">
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="footer-box-3">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

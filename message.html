@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Healthcare Website Chat</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        
+        #wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chat-container {
+            width: 30%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #aaa;
+        }
+        
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .chat-header h2 {
+            text-shadow: 0px 0px 15px gray;
+            transition: all 0.2s linear;
+        }
+        
+        .chat-header h2:hover {
+            transform: scale(1.2);
+        }
+        
+        .chat-header h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-log {
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        
+        #chat-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        #send-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        #send-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>Healthcare Chat</h2>
+            </div>
+            <div class="chat-box">
+                <div class="chat-log"></div>
+                <input type="text" id="chat-input" placeholder="Type your message here...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatLog = document.querySelector('.chat-log');
+        const chatInput = document.querySelector('#chat-input');
+        const sendBtn = document.querySelector('#send-btn');
+
+        // List of chat options
+        const options = [{
+            option: 'Appointment',
+            response: 'You can book an appointment by visiting our website or by calling our office.'
+        }, {
+            option: 'Symptoms',
+            response: 'Please provide more details about your symptoms so that we can help you better.'
+        }, {
+            option: 'Doctor',
+            response: 'You can find a list of our doctors and their specialties on our website.'
+        }, {
+            option: 'Billing',
+            response: 'Please call our office to discuss any billing questions you may have.'
+        }, {
+            option: 'Other',
+            response: 'Please call our office to speak with a representative who can help you with your question.'
+        }];
+
+        // Function to generate chat options
+        function generateOptions() {
+            let optionsHtml = '';
+            for (let i = 0; i < options.length; i++) {
+                optionsHtml += `<button class="chat-option">${options[i].option}</button>`;
+            }
+            return optionsHtml;
+        }
+
+        // Function to send chat message
+        function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage !== '') {
+                const userMessageHtml = `<div class="chat-message user-message">${userMessage}</div>`;
+                chatLog.insertAdjacentHTML('beforeend', userMessageHtml);
+                chatInput.value = '';
+
+                // Generate chat options
+                const optionsHtml = generateOptions();
+                const chatOptionsHtml = `<div class="chat-options">${optionsHtml}</div>`;
+                chatLog.insertAdjacentHTML('beforeend', chatOptionsHtml);
+
+                // Scroll to bottom of chat log
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }
+        }
+
+        // Function to send chat response
+        function sendResponse(response) {
+            const responseHtml = `<div class="chat-message bot-message">${response}</div>`;
+            chatLog.insertAdjacentHTML('beforeend', responseHtml);
+
+            // Scroll to bottom of chat log
+            chatLog.scrollTop = chatLog.scrollHeight;
+
+            // Remove chat options
+            const chatOptions = document.querySelector('.chat-options');
+            chatOptions.remove();
+        }
+
+        // Add event listener to send button
+        sendBtn.addEventListener('click', () => {
+            sendMessage();
+        });
+
+        // Add event listener to chat options
+        chatLog.addEventListener('click', (event) => {
+            if (event.target.classList.contains('chat-option')) {
+                const option = event.target.textContent;
+                const selectedOption = options.find((o) => o.option === option);
+                sendResponse(selectedOption.response);
+            }
+        });
+
+        // Add event listener to chat input
+        chatInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+
+</html>

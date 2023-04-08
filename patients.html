@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patients Information</title>
+    <style>
+        /* Style for the patient list */
+        
+        .patient-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Style for each patient item */
+        
+        .patient-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 8px 8px -5px black;
+        }
+        /* Style for the patient name */
+        
+        .patient-name {
+            font-weight: bold;
+        }
+        /* Style for the patient details */
+        
+        .patient-details {
+            margin-top: 5px;
+        }
+        /* Style for the patient age */
+        
+        .patient-age {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Patients Information: </h1>
+        <ul class="patient-list"></ul>
+    </div>
+    <script>
+        // Patient information data
+        const patients = [{
+            name: "John Smith",
+            age: 35,
+            gender: "Male",
+            diagnosis: "Flu"
+        }, {
+            name: "Jane Doe",
+            age: 42,
+            gender: "Female",
+            diagnosis: "Broken leg"
+        }, {
+            name: "Bob Johnson",
+            age: 28,
+            gender: "Male",
+            diagnosis: "COVID-19"
+        }, {
+            name: "Lucy Mark",
+            age: 23,
+            gender: "Female",
+            diagnosis: "COVID-19"
+        }, {
+            name: "Tony Andru",
+            age: 27,
+            gender: "Male",
+            diagnosis: "COVID-19"
+        }];
+
+        // Get the patient list element
+        const patientList = document.querySelector('.patient-list');
+
+        // Loop through the patients data and create the HTML elements
+        patients.forEach(patient => {
+            const patientItem = document.createElement('li');
+            patientItem.classList.add('patient-item');
+
+            const patientName = document.createElement('div');
+            patientName.classList.add('patient-name');
+            patientName.textContent = patient.name;
+
+            const patientDetails = document.createElement('div');
+            patientDetails.classList.add('patient-details');
+
+            const patientAge = document.createElement('span');
+            patientAge.classList.add('patient-age');
+            patientAge.textContent = `Age: ${patient.age}`;
+
+            const patientGender = document.createElement('span');
+            patientGender.textContent = `  Gender: ${patient.gender}`;
+
+            const patientDiagnosis = document.createElement('span');
+            patientDiagnosis.textContent = ` Diagnosis: ${patient.diagnosis}`;
+
+            // Append the patient details to the patient item
+            patientDetails.appendChild(patientAge);
+            patientDetails.appendChild(patientGender);
+            patientDetails.appendChild(patientDiagnosis);
+
+            // Append the patient name and details to the patient item
+            patientItem.appendChild(patientName);
+            patientItem.appendChild(patientDetails);
+
+            // Append the patient item to the patient list
+            patientList.appendChild(patientItem);
+        });
+    </script>
+</body>
+
+</html>
